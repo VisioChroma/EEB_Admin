@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin – Energy Efficient Buildings</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <!-- LOGIN -->
+  <main id="login" class="page" hidden>
+    <section class="panel">
+      <img class="hero" src="assets/bgg.png" alt="">
+      <h1 class="title">ADMIN LOGIN</h1>
+      <form id="loginForm" class="form" novalidate>
+        <input id="email" class="field" type="email" placeholder="Email" aria-label="Email" autocomplete="username">
+        <input id="password" class="field" type="password" placeholder="Password" aria-label="Password" autocomplete="current-password">
+        <p id="msgL" class="msg" role="alert" hidden></p>
+        <button id="loginBtn" class="btn" type="submit">Log in</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- ADMIN PANEL -->
+  <div id="app" class="wrap" hidden>
+    <header class="top">
+      <img class="hero noprint" src="assets/bgg.png" alt="">
+      <h1 class="noprint">Admin Panel</h1>
+      <h1 class="print-only">Energy Efficient Buildings – Groups and Topics</h1>
+      <p class="sub noprint">Energy Efficient Buildings – Presentation Assessment</p>
+      <p class="sub print-only" id="printDate"></p>
+    </header>
+
+    <section id="stats" class="stats noprint"></section>
+
+    <section class="bar noprint">
+      <div class="tabs" role="group" aria-label="Department">
+        <button type="button" data-dept="ALL" aria-pressed="true">All</button>
+        <button type="button" data-dept="CSE" aria-pressed="false">CSE</button>
+        <button type="button" data-dept="MECH" aria-pressed="false">MECH</button>
+      </div>
+      <input id="search" class="field" type="search" placeholder="Search name, roll no, group or topic" aria-label="Search">
+      <label class="chk"><input id="hideCodes" type="checkbox"> Hide codes</label>
+      <button id="refreshBtn" class="sbtn" type="button">Refresh</button>
+      <button id="printBtn" class="sbtn sbtn--solid" type="button">Print / Save PDF</button>
+      <button id="logoutBtn" class="sbtn" type="button">Log out</button>
+    </section>
+
+    <section id="grid" class="grid"></section>
+
+    <details id="pending" class="box noprint">
+      <summary id="pendingSum">Yet to join</summary>
+      <div id="pendingList"></div>
+    </details>
+    <details class="box noprint">
+      <summary>Topics</summary>
+      <ul id="topicList" class="tlist"></ul>
+    </details>
+  </div>
+
+  <dialog id="dlg">
+    <form method="dialog">
+      <p id="dlgText"></p>
+      <div class="dlgbtns">
+        <button value="cancel" class="sbtn">Cancel</button>
+        <button value="ok" id="dlgOk" class="sbtn sbtn--danger">Confirm</button>
+      </div>
+    </form>
+  </dialog>
+  <div id="toast" role="status" hidden></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+  <script src="config.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
